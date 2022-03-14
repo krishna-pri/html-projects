@@ -87,40 +87,83 @@
             var lname = document.getElementById("lname").value;
             var dob = document.getElementById('dob').value;
             var ele = document.getElementsByName('gender');
+            var gen;
               
               for(i = 0; i < ele.length; i++) {
                   if(ele[i].checked)
-                  document.getElementById("i4").innerHTML
-                          = ele[i].value;
+                  {
+                    // document.getElementById("i4").innerHTML
+                         gen = ele[i].value;
+                  }
+                 
               }
             var ph = document.getElementById('ph-no').value;
             var mail = document.getElementById('e-mail').value;
+            
+            localStorage.setItem("First",fname);
+            localStorage.setItem("Last",lname);
+            localStorage.setItem("DOB",dob);
+            localStorage.setItem("Gender",gen);
+            localStorage.setItem("Phone",ph);
+            localStorage.setItem("Mail",mail);
 
-            document.getElementById("details-form").reset();
-
-            document.getElementById("data").innerHTML = "Personal Details of "+fname+" "+lname;
-            document.getElementById("t1").innerHTML = "First Name";
-            document.getElementById("i1").innerHTML = fname;
-            document.getElementById("t2").innerHTML = "Last Name";
-            document.getElementById("i2").innerHTML = lname;
-            document.getElementById("t3").innerHTML = "D.O.B";
-            document.getElementById("i3").innerHTML = dob;
-            document.getElementById("t4").innerHTML = "Gender";
-            document.getElementById("t5").innerHTML = "Contact Number";
-            document.getElementById("i5").innerHTML = ph;
-            document.getElementById("t6").innerHTML = "Email ID";
-            document.getElementById("i6").innerHTML = mail;
+                
+        }
+        function clearForm()
+        {
+            const form=document.getElementById("details-form");
+            form.reset();
+            // document.location.reload();
         }
         
 
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+    <style>
+        body
+        {
+            background-color: rgba(0, 255, 255, 0.5);
+            font-family: 'Fira Sans', sans-serif;
+        }
+        #details-form
+        {
+            margin:2% 25% 2% 25%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 5%;
+            border: 1px solid blue;
+            font-family: 'Fira Sans', sans-serif;
+            
+        }
+        button, textarea, input
+        {
+            font-family: 'Fira Sans', sans-serif;
+        }
+        .gen
+        {
+            flex-direction: row;
+        }
+        button
+        {
+            font-size: 15px;
+            font-weight: bold;
+            height: 25px;
+            background-color: rgb(122, 192, 233);
+            border: 1px solid rgb(47, 0, 255);
+            padding: 1%;
+        }
+    </style>
 
 
 
 </head>
 
 <body>
-    <form id="details-form">
+    <h1 align="center">PERSONAL DETAILS FORM</h1>
+    <form id="details-form" action="Form_data.html">
         <label for="fname"><b>First Name : </b></label>
         <input type="text" id="fname" onblur="checkFname()" required="required">
         <br><br>
@@ -130,11 +173,13 @@
         <label for="dob"><b>D.O.B : </b></label>
         <input type="date" id="dob" oninput="checkDob()">
         <br><br>
+        <div class="gen">
         <label><b>Gender : </b></label>
         <input type="radio" id="m" name="gender" value="Male">
         <label for="m">Male</label>
         <input type="radio" id="f" name="gender" value="Female">
         <label for="f">Female</label>
+        </div>
         <br><br>
         <label for="addrs-1"><b>Address Line 1 : </b></label>
         <textarea id="addrs-1" cols="50" row="2" onblur="checkAddrs1()" required="required"></textarea>
@@ -402,37 +447,12 @@
         <label for="e-mail"><b>E-Mail Address : </b></label>
         <input type="email" id="e-mail" onblur="checkEmail()"  required="required"">
         <br><br>
-        <button type="button" form="details-form" value="submit" onclick="Submit()">SUBMIT</button>
+        <button type="submit" form="details-form" value="submit" onclick="Submit()">Submit</button>
+        <br>
+        <button onclick="clearForm()">Clear</button>
     </form>
 
-    <table border="1">
-        <br>
-        <h2 id="data"></h2>
-        <tr>
-            <th id="t1"></th>
-            <td id="i1"></td>
-        </tr>
-        <tr>
-            <th id="t2"></th>
-            <td id="i2"></td>
-        </tr>
-        <tr>
-            <th id="t3"></th>
-            <td id="i3"></td>
-        </tr>
-        <tr>
-            <th id="t4"></th>
-            <td id="i4"></td>
-        </tr>
-        <tr>
-            <th id="t5"></th>
-            <td id="i5"></td>
-        </tr>
-        <tr>
-            <th id="t6"></th>
-            <td id="i6"></td>
-        </tr>
-    </table>
+    
 </body>
 
 </html>

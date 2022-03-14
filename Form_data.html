@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FORM DATA</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+    <style>
+        body
+        {
+            background-color: rgba(0, 255, 255, 0.5);
+            font-family: 'Fira Sans', sans-serif;
+        }
+        table
+        {
+            margin:2% 25% 2% 25%;
+            background-color: white;
+            padding: 5%;
+            border: 1px solid blue;
+            font-family: 'Fira Sans', sans-serif;
+            font-size: large;
+            line-height: 40px;
+            
+        }
+        th,td{
+            border: none;
+            text-align: left;
+        }
+        th
+        {
+            width: 55%;
+        }
+    </style>
+    </head>
+    <body>
+        <table border="1">
+            <br>
+            <h2 align="center" id="data"></h2>
+            <tr>
+                <th id="t1"></th>
+                <td id="i1"></td>
+            </tr>
+            <tr>
+                <th id="t2"></th>
+                <td id="i2"></td>
+            </tr>
+            <tr>
+                <th id="t3"></th>
+                <td id="i3"></td>
+            </tr>
+            <tr>
+                <th id="t4"></th>
+                <td id="i4"></td>
+            </tr>
+            <tr>
+                <th id="t5"></th>
+                <td id="i5"></td>
+            </tr>
+            <tr>
+                <th id="t6"></th>
+                <td id="i6"></td>
+            </tr>
+        </table>
+        <script>
+            var fname=localStorage.getItem("First");
+            var lname=localStorage.getItem("Last");
+            var dob=localStorage.getItem("DOB");
+            var gen=localStorage.getItem("Gender");
+            var ph=localStorage.getItem("Phone");
+            var mail=localStorage.getItem("Mail");
+            document.getElementById("data").innerHTML = "Personal Details of "+fname+" "+lname;
+            document.getElementById("t1").innerHTML = "First Name";
+            document.getElementById("i1").innerHTML = fname;
+            document.getElementById("t2").innerHTML = "Last Name";
+            document.getElementById("i2").innerHTML = lname;
+            document.getElementById("t3").innerHTML = "D.O.B";
+            document.getElementById("i3").innerHTML = dob;
+            document.getElementById("t4").innerHTML = "Gender";
+            document.getElementById("i4").innerHTML = gen;
+            document.getElementById("t5").innerHTML = "Contact Number";
+            document.getElementById("i5").innerHTML = ph;
+            document.getElementById("t6").innerHTML = "Email ID";
+            document.getElementById("i6").innerHTML = mail;
+        </script>
+    </body>
+</html>
