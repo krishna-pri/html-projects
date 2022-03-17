@@ -7,10 +7,7 @@
         function checkFname() {
             var name = document.getElementById('fname').value
             let isString = /^[a-zA-Z ]*$/.test(name)
-            if (name.length == 0) {
-                alert("First Name is required")
-            }
-            else if (!isString) {
+             if (!isString) {
                 alert("Enter valid First Name: Accepts only alphabets")
             }
             else if (name.length < 3) {
@@ -81,7 +78,13 @@
 
         }
         function Submit() {
-            
+            // var form =document.getElementById("details-form");
+            // form.submit();
+            //checkFname();
+            // checkLname();
+            // checkDob();
+            // checkAddrs1();
+            // checkAddrs2();
             alert("Form submitted successfully!")
             var fname = document.getElementById("fname").value;
             var lname = document.getElementById("lname").value;
@@ -146,13 +149,13 @@
         {
             flex-direction: row;
         }
-        button
+        .btn
         {
             font-size: 15px;
             font-weight: bold;
             height: 25px;
-            background-color: rgb(122, 192, 233);
-            border: 1px solid rgb(47, 0, 255);
+            background-color: rgba(0, 255, 255, 0.295);
+            border: 1px solid gray;
             padding: 1%;
         }
     </style>
@@ -163,15 +166,15 @@
 
 <body>
     <h1 align="center">PERSONAL DETAILS FORM</h1>
-    <form id="details-form" action="Form_data.html">
+    <form id="details-form" action="Form_data.html" onsubmit="Submit()">
         <label for="fname"><b>First Name : </b></label>
-        <input type="text" id="fname" onblur="checkFname()" required="required">
+        <input type="text" id="fname" required="required" onblur="checkFname();">
         <br><br>
         <label for="lname"><b>Last Name</b> (optional)<b> : </b> </label>
         <input type="text" id="lname" onblur="checkLname()">
         <br><br>
         <label for="dob"><b>D.O.B : </b></label>
-        <input type="date" id="dob" oninput="checkDob()">
+        <input type="date" id="dob" oninput="checkDob()" required="required">
         <br><br>
         <div class="gen">
         <label><b>Gender : </b></label>
@@ -447,9 +450,9 @@
         <label for="e-mail"><b>E-Mail Address : </b></label>
         <input type="email" id="e-mail" onblur="checkEmail()"  required="required"">
         <br><br>
-        <button type="submit" form="details-form" value="submit" onclick="Submit()">Submit</button>
+        <input class="btn" type="submit" form="details-form" value="Submit">
         <br>
-        <button onclick="clearForm()">Clear</button>
+        <input class="btn" type="reset" value="Clear">
     </form>
 
     
