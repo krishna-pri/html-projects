@@ -7,7 +7,7 @@
         function checkFname() {
             var name = document.getElementById('fname').value
             let isString = /^[a-zA-Z ]*$/.test(name)
-             if (!isString) {
+            if (!isString) {
                 alert("Enter valid First Name: Accepts only alphabets")
             }
             else if (name.length < 3) {
@@ -91,72 +91,150 @@
             var dob = document.getElementById('dob').value;
             var ele = document.getElementsByName('gender');
             var gen;
-              
-              for(i = 0; i < ele.length; i++) {
-                  if(ele[i].checked)
-                  {
+
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked) {
                     // document.getElementById("i4").innerHTML
-                         gen = ele[i].value;
-                  }
-                 
-              }
+                    gen = ele[i].value;
+                }
+
+            }
             var ph = document.getElementById('ph-no').value;
             var mail = document.getElementById('e-mail').value;
-            
-            localStorage.setItem("First",fname);
-            localStorage.setItem("Last",lname);
-            localStorage.setItem("DOB",dob);
-            localStorage.setItem("Gender",gen);
-            localStorage.setItem("Phone",ph);
-            localStorage.setItem("Mail",mail);
 
-                
+            localStorage.setItem("First", fname);
+            localStorage.setItem("Last", lname);
+            localStorage.setItem("DOB", dob);
+            localStorage.setItem("Gender", gen);
+            localStorage.setItem("Phone", ph);
+            localStorage.setItem("Mail", mail);
+
+
         }
-        function clearForm()
-        {
-            const form=document.getElementById("details-form");
+        function clearForm() {
+            const form = document.getElementById("details-form");
             form.reset();
             // document.location.reload();
         }
-        
+
 
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Sans:ital,wght@1,700&family=Inconsolata:wght@500&family=Luxurious+Roman&family=Neonderthaw&family=Sora&display=swap"
+        rel="stylesheet">
     <style>
-        body
-        {
-            background-color: rgba(0, 255, 255, 0.5);
-            font-family: 'Fira Sans', sans-serif;
+        @media only screen and (min-width: 1024px) {
+            body {
+                background-color: rgba(0, 255, 255, 0.5);
+                font-family: 'Fira Sans', sans-serif;
+            }
+
+            #details-form {
+                margin: 2% 25% 2% 25%;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                padding: 5%;
+                border: 1px solid blue;
+                font-family: 'Fira Sans', sans-serif;
+
+            }
+
+            button,
+            textarea,
+            input {
+                font-family: 'Fira Sans', sans-serif;
+            }
+
+            .gen {
+                flex-direction: row;
+            }
+
+            .btn {
+                font-size: 15px;
+                font-weight: bold;
+                height: 25px;
+                background-color: rgba(0, 255, 255, 0.295);
+                border: 1px solid gray;
+                padding: 1%;
+            }
         }
-        #details-form
-        {
-            margin:2% 25% 2% 25%;
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-            padding: 5%;
-            border: 1px solid blue;
-            font-family: 'Fira Sans', sans-serif;
-            
+
+        @media only screen and (min-width: 768px) and (max-width: 1023px) {
+            body {
+                background-color: rgba(0, 89, 255, 0.342);
+                font-family: 'Luxurious Roman', cursive;
+            }
+
+            #details-form {
+                margin: 2% 25% 2% 25%;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                padding: 5%;
+                border: 1px solid blue;
+                font-family: 'Luxurious Roman', cursive;
+
+            }
+
+            button,
+            textarea,
+            input {
+                font-family: 'Luxurious Roman', cursive;
+            }
+
+            .gen {
+                flex-direction: row;
+            }
+
+            .btn {
+                font-size: 15px;
+                font-weight: bold;
+                height: 25px;
+                background-color: rgba(0, 89, 255, 0.342);
+                border: 1px solid gray;
+                padding: 1%;
+            }
         }
-        button, textarea, input
-        {
-            font-family: 'Fira Sans', sans-serif;
-        }
-        .gen
-        {
-            flex-direction: row;
-        }
-        .btn
-        {
-            font-size: 15px;
-            font-weight: bold;
-            height: 25px;
-            background-color: rgba(0, 255, 255, 0.295);
-            border: 1px solid gray;
-            padding: 1%;
+
+        @media only screen and (min-width: 300px) and (max-width: 767px) {
+            body {
+                background-color: rgba(229, 255, 0, 0.404);
+                font-family: 'IBM Plex Sans', sans-serif;
+            }
+
+            #details-form {
+                margin: 2% 25% 2% 25%;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                padding: 5%;
+                border: 1px solid blue;
+                font-family: 'IBM Plex Sans', sans-serif;
+
+            }
+
+            button,
+            textarea,
+            input {
+                font-family: 'IBM Plex Sans', sans-serif;
+            }
+
+            .gen {
+                flex-direction: row;
+            }
+
+            .btn {
+                font-size: 15px;
+                font-weight: bold;
+                height: 25px;
+                background-color: rgba(229, 255, 0, 0.404);
+                border: 1px solid gray;
+                padding: 1%;
+            }
         }
     </style>
 
@@ -177,11 +255,11 @@
         <input type="date" id="dob" oninput="checkDob()" required="required">
         <br><br>
         <div class="gen">
-        <label><b>Gender : </b></label>
-        <input type="radio" id="m" name="gender" value="Male">
-        <label for="m">Male</label>
-        <input type="radio" id="f" name="gender" value="Female">
-        <label for="f">Female</label>
+            <label><b>Gender : </b></label>
+            <input type="radio" id="m" name="gender" value="Male">
+            <label for="m">Male</label>
+            <input type="radio" id="f" name="gender" value="Female">
+            <label for="f">Female</label>
         </div>
         <br><br>
         <label for="addrs-1"><b>Address Line 1 : </b></label>
@@ -445,17 +523,17 @@
             <option value="ZM">Zambia</option>
             <option value="ZW">Zimbabwe</option>
         </select>
-        
+
         <br><br>
         <label for="e-mail"><b>E-Mail Address : </b></label>
-        <input type="email" id="e-mail" onblur="checkEmail()"  required="required"">
+        <input type="email" id="e-mail" onblur="checkEmail()" required="required"">
         <br><br>
-        <input class="btn" type="submit" form="details-form" value="Submit">
+        <input class=" btn" type="submit" form="details-form" value="Submit">
         <br>
         <input class="btn" type="reset" value="Clear">
     </form>
 
-    
+
 </body>
 
 </html>
