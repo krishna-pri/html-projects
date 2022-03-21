@@ -3,6 +3,7 @@
 
 <head>
     <title>Personal Details Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         function checkFname() {
             var name = document.getElementById('fname').value
@@ -130,53 +131,79 @@
             body {
                 background-color: rgba(0, 255, 255, 0.5);
                 font-family: 'Fira Sans', sans-serif;
+
             }
 
+            h1 {
+                font-size: 4vw;
+            }
+
+
             #details-form {
-                margin: 2% 25% 2% 25%;
+                margin: 5% 15% 5% 15%;
                 display: flex;
                 flex-direction: column;
                 background-color: white;
                 padding: 5%;
                 border: 1px solid blue;
                 font-family: 'Fira Sans', sans-serif;
+                font-size: 2vw;
+            }
 
+            label {
+                margin-bottom: 1vw;
             }
 
             button,
             textarea,
             input {
                 font-family: 'Fira Sans', sans-serif;
+                font-size: 2vw;
+                height: 4vw;
+                border: 1px solid gray;
             }
 
             .gen {
                 flex-direction: row;
+                border: none;
             }
 
             .btn {
-                font-size: 15px;
+                font-size: 2vw;
                 font-weight: bold;
-                height: 25px;
+                height: 20%;
                 background-color: rgba(0, 255, 255, 0.295);
                 border: 1px solid gray;
                 padding: 1%;
+            }
+
+            select {
+                border: 1px solid gray;
+                height: 4vw;
+                font-size: 2vw;
+                font-family: 'Fira Sans', sans-serif;
             }
         }
 
         @media only screen and (min-width: 768px) and (max-width: 1023px) {
             body {
-                background-color: rgba(0, 89, 255, 0.342);
+                background-color: rgba(72, 255, 0, 0.493);
                 font-family: 'Luxurious Roman', cursive;
             }
 
+            h1 {
+                font-size: 8vw;
+            }
+
             #details-form {
-                margin: 2% 25% 2% 25%;
+                margin: 5% 15% 5% 15%;
                 display: flex;
                 flex-direction: column;
                 background-color: white;
                 padding: 5%;
                 border: 1px solid blue;
                 font-family: 'Luxurious Roman', cursive;
+                font-size: 5vw;
 
             }
 
@@ -184,6 +211,9 @@
             textarea,
             input {
                 font-family: 'Luxurious Roman', cursive;
+                border: 1px solid gray;
+                font-size: 5vw;
+                height: 8vw;
             }
 
             .gen {
@@ -191,29 +221,41 @@
             }
 
             .btn {
-                font-size: 15px;
+                font-size: 5vw;
                 font-weight: bold;
-                height: 25px;
-                background-color: rgba(0, 89, 255, 0.342);
+                height: 20%;
+                background-color: rgba(72, 255, 0, 0.493);
                 border: 1px solid gray;
                 padding: 1%;
             }
+
+            select {
+                border: 1px solid gray;
+                height: 8vw;
+                font-size: 5vw;
+                font-family: 'Luxurious Roman', cursive;
+            }
+
+            label {
+                margin-bottom: 2vw;
+            }
         }
 
-        @media only screen and (min-width: 300px) and (max-width: 767px) {
+        @media only screen and (min-width: 200px) and (max-width: 767px) {
             body {
                 background-color: rgba(229, 255, 0, 0.404);
                 font-family: 'IBM Plex Sans', sans-serif;
             }
 
             #details-form {
-                margin: 2% 25% 2% 25%;
+                margin: 5% 10% 5% 10%;
                 display: flex;
                 flex-direction: column;
                 background-color: white;
                 padding: 5%;
                 border: 1px solid blue;
                 font-family: 'IBM Plex Sans', sans-serif;
+                font-size: 5vw;
 
             }
 
@@ -221,19 +263,33 @@
             textarea,
             input {
                 font-family: 'IBM Plex Sans', sans-serif;
+                border: 1px solid gray;
+                height: 8vw;
             }
 
             .gen {
                 flex-direction: row;
+                font-size: 5vw;
             }
 
             .btn {
-                font-size: 15px;
+                font-size: 5vw;
                 font-weight: bold;
-                height: 25px;
+                height: 20%;
                 background-color: rgba(229, 255, 0, 0.404);
                 border: 1px solid gray;
                 padding: 1%;
+            }
+
+            select {
+                border: 1px solid gray;
+                height: 8vw;
+                font-size: 4vw;
+                font-family: 'IBM Plex Sans', sans-serif;
+            }
+
+            label {
+                margin-bottom: 2vw;
             }
         }
     </style>
@@ -248,14 +304,15 @@
         <label for="fname"><b>First Name : </b></label>
         <input type="text" id="fname" required="required" onblur="checkFname();">
         <br><br>
-        <label for="lname"><b>Last Name</b> (optional)<b> : </b> </label>
+        <label for="lname"><b>Last Name</b>(optional)<b> : </b> </label>
         <input type="text" id="lname" onblur="checkLname()">
         <br><br>
         <label for="dob"><b>D.O.B : </b></label>
         <input type="date" id="dob" oninput="checkDob()" required="required">
         <br><br>
+        <label><b>Gender : </b></label>
         <div class="gen">
-            <label><b>Gender : </b></label>
+            <!-- <label><b>Gender : </b></label> -->
             <input type="radio" id="m" name="gender" value="Male">
             <label for="m">Male</label>
             <input type="radio" id="f" name="gender" value="Female">
